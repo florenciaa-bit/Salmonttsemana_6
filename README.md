@@ -1,49 +1,49 @@
-SalmonttApp
-Descripción del objetivo de esta semana
+# SalmonttApp
 
-Durante la semana 6 se trabajó en la implementación de una jerarquía de clases con herencia simple para representar las unidades operativas de la empresa salmonera Salmontt. El objetivo principal fue crear una estructura que permitiera reutilizar atributos comunes y, al mismo tiempo, especializar el comportamiento de cada tipo de unidad según su función dentro de la empresa.
+Aplicación de ejemplo para modelar la digitalización de la empresa salmonera **Salmontt**, ubicada en la Región de Los Lagos.
 
-Para esto, se definió una clase base que contiene la información general de cualquier unidad operativa, y se crearon subclases que extienden esta clase para agregar características propias de los centros de cultivo y las plantas de proceso. De esta forma, se logra un modelo más ordenado, escalable y fácil de mantener.
+## Objetivo de la Semana 6
 
-Clases creadas
+En esta semana se implementa una jerarquía de clases con herencia simple para representar las unidades operativas de la empresa, reutilizando atributos comunes y especializando comportamientos según el tipo de unidad.
 
-UnidadOperativa
-Clase base que representa una unidad operativa general de Salmontt. Contiene los atributos comunes:
+Los objetivos son:
 
-nombre
+- Crear una superclase `UnidadOperativa` con atributos compartidos (`nombre`, `comuna`).
+- Crear subclases `CentroCultivo` y `PlantaProceso` que extienden `UnidadOperativa`.
+- Usar `super(...)` en los constructores para inicializar atributos heredados.
+- Sobrescribir el método `toString()` en las subclases para mostrar toda la información.
+- Probar la creación de objetos de cada tipo desde una clase gestora y mostrarlos en consola.
 
-comuna
+## Clases creadas esta semana
 
-CentroCultivo
-Subclase de UnidadOperativa que representa un centro donde se produce el salmón. Agrega el atributo:
+- `model.UnidadOperativa`  
+  Clase base que representa una unidad operativa genérica de Salmontt. Contiene los atributos:
+  - `nombre`
+  - `comuna`
 
-toneladasProduccion
+- `model.CentroCultivo`  
+  Subclase de `UnidadOperativa` que agrega:
+  - `toneladasProduccion`
 
-PlantaProceso
-Subclase de UnidadOperativa que representa una planta donde se procesa el salmón. Agrega el atributo:
+- `model.PlantaProceso`  
+  Subclase de `UnidadOperativa` que agrega:
+  - `capacidadProceso`
 
-capacidadProceso
+- `data.GestorUnidades`  
+  Clase encargada de crear instancias de prueba de las distintas unidades operativas.
 
-GestorUnidades
-Clase encargada de crear instancias de prueba de los distintos tipos de unidades operativas para mostrar su funcionamiento.
+- `app.Main`  
+  Punto de entrada de la aplicación. Llama a `GestorUnidades` para crear las unidades de prueba y las muestra en la consola usando `toString()`.
 
-Main
-Clase principal que ejecuta el programa y muestra por consola la información de las unidades creadas mediante el método toString().
+## Instrucciones para ejecutar `Main`
 
-Instrucciones para ejecutar Main
+1. Importar el proyecto en tu IDE.
+2. Asegurarse de que la estructura de paquetes sea:
+   - `model`
+   - `data`
+   - `app`
+3. Ejecutar la clase:
 
-Abrir el proyecto SalmonttApp en el IDE utilizado (IntelliJ IDEA, NetBeans u otro).
+   - `app.Main`
 
-Verificar que la estructura del proyecto contenga los siguientes paquetes:
-
-model
-
-data
-
-ui
-
-Ubicar la clase Main dentro del paquete ui.
-
-Ejecutar la clase presionando el botón Run o utilizando la opción “Ejecutar”.
-
-Revisar la salida en la consola, donde se mostrarán los datos de los centros de cultivo y plantas de proceso creadas.
+4. Verificar en la consola la salida con el detalle de las unidades operativas creadas (centros de cultivo y plantas de proceso).
